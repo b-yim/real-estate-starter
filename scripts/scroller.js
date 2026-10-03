@@ -6,6 +6,9 @@ for (var i = 0; i < scrollers.length; i++) {
   const track = scroller.querySelector(".scroller__track");
   const firstGroup = track.querySelector(".scroller__group");
 
+  if (!firstGroup || firstGroup.querySelector(".feature-card:empty")) continue;
+  if (track.querySelector(".scroller__group[aria-hidden='true']")) continue;
+
   // Clone group
   const clone = firstGroup.cloneNode(true);
   clone.setAttribute("aria-hidden", "true");

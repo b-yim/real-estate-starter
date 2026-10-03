@@ -1,22 +1,28 @@
 
 .card-items {
-  height: 400px;
+  min-height: 410px;
+  height: auto;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: var(--card);
+  box-shadow: var(--shadow-soft);
   cursor: pointer;
   text-decoration: none;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* Make image fill the whole card */
 .card-items_media {
   width: 100%;
   height: 230px;
-  border-radius: 12px;
-  opacity: 0.7;
+  border-radius: 13px;
+  opacity: 1;
   transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
@@ -31,7 +37,8 @@
 .card-items__body {
   width: 100%;
   height: 45%;  
-  margin-top: 6px;
+  margin-top: 14px;
+  padding: 0 4px 4px;
   display: flex;
   flex: 1;
   flex-direction: column;
@@ -42,7 +49,7 @@
 
 .card-items__body small {
   color: var(--muted);
-  font-size: 16px;
+  font-size: 13px;
 }
 
 .top-cols-item {
@@ -70,13 +77,15 @@
 }
 
 .title-cols {
-  font-size: 22px;
+  font-size: 20px;
+  line-height: 1.25;
+  margin-top: 7px;
   color: var(--text);
 }
 
 .txt-cols{
-  font-size: var(--body);
-  color: var(--text);
+  font-size: 14px;
+  color: var(--muted);
   margin-bottom: 8px;
 }
 
@@ -94,7 +103,9 @@
   margin-top: 6px;
   color: var(--text-option);
   background-color: var(--acent);
-  border-radius: 0.8rem;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 14px;
   transition: all .2s ease;
 }
 
@@ -106,6 +117,8 @@
 .card-items:hover .card-items_media {
   opacity: 1;
 }
+
+.card-items:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
 
 .card-top:hover {
   transform: translateY(-4px);

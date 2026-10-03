@@ -1,7 +1,7 @@
 // feature card
 const sectionFeatureElement = document.getElementById("featureCard")
 
-fetch("../public/data/properties.json")
+fetch("/public/data/properties.json")
  .then((response) => response.json())
  .then((data) => {
     if (data.length > 0) {
@@ -24,27 +24,26 @@ fetch("../public/data/properties.json")
             </a>
         `;
         }
+
+        initializeFeatureScroller();
     }
-        
  })
 
+function initializeFeatureScroller() {
+  const scroller = sectionFeatureElement.closest(".scroller");
+  if (!scroller) return;
 
-const scrollers = document.querySelectorAll(".scroller");
-
-for (var i = 0; i < scrollers.length; i++) {
-  var scroller = scrollers[i];
-  console.log("scroller: ", scroller);
   const track = scroller.querySelector(".scroller__track");
-  const firstGroup = track.querySelector(".scroller__group");
+  const firstGroup = track?.querySelector(".scroller__group:not([aria-hidden='true'])");
+  if (!track || !firstGroup) return;
 
-  // Clone group
+  track.querySelectorAll(".scroller__group[aria-hidden='true']").forEach((clone) => clone.remove());
+
   const clone = firstGroup.cloneNode(true);
   clone.setAttribute("aria-hidden", "true");
   track.appendChild(clone);
 
-  // Set duration based on total width (bigger content, longer scroll)
-  const totalWidth = firstGroup.scrollWidth * 2; // A + clone
-  const pxPerSecond = 13;
-  const duration = totalWidth / pxPerSecond;
+  const pxPerSecond = 45;
+  const duration = (firstGroup.scrollWidth * 2) / pxPerSecond;
   track.style.setProperty("--marquee-duration", `${duration}s`);
 }

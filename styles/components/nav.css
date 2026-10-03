@@ -1,16 +1,18 @@
 .navbar-content {
   width: 100%;
-  height: 60px;
+  height: 76px;
   background-color: transparent;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 420;
-  transition: all .2s ease;
+  transition: background-color .25s ease, box-shadow .25s ease, backdrop-filter .25s ease;
 }
 
 .navbar-content.scrolled {
-  background-color: var(--nav-foot);
+  background-color: color-mix(in srgb, var(--nav-foot) 92%, transparent);
+  box-shadow: 0 8px 30px rgba(24, 30, 26, 0.08);
+  backdrop-filter: blur(16px);
 }
 
 .navbar-content.scrolled .nav-links ul li a {
@@ -28,7 +30,8 @@
 .navbar {
   max-width: var(--maxw);
   margin: auto;
-  margin-top: 4px;
+  height: 100%;
+  padding-inline: 24px;
   overflow: hidden;
   background-color: transparent;
   display: flex;
@@ -38,7 +41,7 @@
 }
 
 .logo {
-  width: 100px;
+  width: 108px;
   object-fit: cover;
 }
 
@@ -49,11 +52,12 @@
 .nav-links ul:not(.sidebar) {
   display: flex;
   list-style: none;
-  gap: 35px;
+  gap: 30px;
 }
 
 .nav-links ul li a:not(.sidebar a) {
-  font-size: 17px;
+  font-size: 15px;
+  font-weight: 600;
   color: var(--text-option);
   transition: all .2s ease;
 }
@@ -61,12 +65,12 @@
 .nav-links ul li a.active {
   color: var(--acent-hover);
   font-weight: 500;
-  border-bottom: 2px solid var(--acent-hover);
+  border-bottom: none;
 }
 
 .nav-links ul li a:hover {
   color: var(--acent-hover);
-  border-bottom: 2px solid var(--acent-hover);
+  border-bottom: none;
 }
 
 .extra:hover {
@@ -89,8 +93,9 @@
 .nav-btn a{
   font-size: 16px;
   padding: clamp(6px, 0.5vw, 8px) clamp(10px, 1vw, 14px);
-  border-radius: 8px;
-  background-color: var(--acent-secondary);
+  border: 1px solid rgba(255, 255, 255, 0.38);
+  border-radius: 999px;
+  background-color: rgba(255, 255, 255, 0.88);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -123,16 +128,17 @@
   align-items: flex-end;
   justify-content: flex-start;
   gap: 25px;
-  padding-top: 30px;
-  padding-right: 16px;
+  gap: 18px;
+  padding: 28px 24px;
   position: fixed;
   top: 0;
   right: 0;
   height: 100vh;
-  width: 250px;
+  width: min(320px, 88vw);
   z-index: 4;
   color: var(--text);
   background-color: var(--nav-foot);
+  box-shadow: -20px 0 60px rgba(20, 28, 23, 0.18);
   list-style: none;
 }
 
@@ -145,6 +151,9 @@
 .sidebar a {
   width: 100%;
   color: var(--text);
+  display: block;
+  padding: 9px 0;
+  font-size: 1.05rem;
 }
 
 .sidebar.scrolled li a {
@@ -177,12 +186,19 @@
 /* responsive navagation */
 @media (max-width: 768px) {
 
+  .navbar-content { height: 68px; }
+
+  .navbar { padding-inline: 14px; }
+
+  .logo { width: 92px; }
+
   .hideOnMobile {
     display: none;
   }
 
   .menu-btn {
     display: block;
+    margin-right: 0;
   }
 
   .nav-actions {

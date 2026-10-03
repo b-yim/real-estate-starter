@@ -1,11 +1,14 @@
 .navbar-content {
   width: 100%;
-  height: 60px;
-  background-color: var(--nav-foot);
+  height: 68px;
+  background-color: color-mix(in srgb, var(--nav-foot) 94%, transparent);
   position: fixed;
   top: 0;
   left: 0;
   z-index: 420;
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 8px 30px rgba(24, 30, 26, 0.06);
+  backdrop-filter: blur(16px);
   transition: all .2s ease;
 }
 
@@ -28,7 +31,8 @@
 .navbar {
   max-width: var(--maxw);
   margin: auto;
-  margin-top: 4px;
+  height: 100%;
+  padding-inline: 24px;
   overflow: hidden;
   background-color: transparent;
   display: flex;
@@ -49,23 +53,24 @@
 .nav-links ul:not(.sidebar) {
   display: flex;
   list-style: none;
-  gap: 35px;
+  gap: 30px;
 }
 
 .nav-links ul li a:not(.sidebar a) {
-  font-size: 17px;
+  font-size: 15px;
+  font-weight: 600;
   color: var(--text);
   transition: all .2s ease;
 }
 
 .nav-links ul li a.active {
   color: var(--acent-hover);
-  border-bottom: 2px solid var(--acent-hover);
+  border-bottom: none;
 }
 
 .nav-links ul li a:hover {
   color: var(--acent-hover);
-  border-bottom: 2px solid var(--acent-hover);
+  border-bottom: none;
 }
 
 .extra:hover {
@@ -88,7 +93,8 @@
 .nav-btn a{
   font-size: 16px;
   padding: clamp(6px, 0.5vw, 8px) clamp(10px, 1vw, 14px);
-  border-radius: 8px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
   background-color: var(--acent-secondary);
   display: inline-flex;
   align-items: center;
@@ -179,6 +185,12 @@
 
 /* responsive navagation */
 @media (max-width: 768px) {
+
+  .navbar-content { height: 64px; }
+
+  .navbar { padding-inline: 14px; }
+
+  .logo { width: 90px; }
 
   .hideOnMobile {
     display: none;
