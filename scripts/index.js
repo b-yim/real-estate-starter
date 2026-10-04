@@ -19,7 +19,7 @@ window.agentPortraits = [
   "/public/assets/images/agents/agent-sreypov.png",
   "/public/assets/images/agents/agent-vibol.png",
   "/public/assets/images/agents/agent-socheata.png"
-];
+].map(sitePath);
 
 window.agentPortraitMap = {
   301: window.agentPortraits[0], 302: window.agentPortraits[2], 303: window.agentPortraits[1],
@@ -57,18 +57,18 @@ function initializeNavbar() {
   if (!navActions.querySelector(".nav-browse-cta")) {
     const browseLink = document.createElement("a");
     browseLink.className = "nav-browse-cta";
-    browseLink.href = "/pages/listing/index.html";
+    browseLink.href = sitePath("/pages/listing/index.html");
     browseLink.textContent = "Browse homes";
     navActions.appendChild(browseLink);
   }
 
   const navDestinations = {
-    Home: "/index.html",
-    Rent: "/pages/rent/index.html?filter=rent",
-    Buy: "/pages/buy/index.html?filter=sale",
-    Agents: "/pages/agents/index.html",
-    About: "/pages/about/index.html",
-    Contact: "/pages/contact/index.html"
+    Home: sitePath("/index.html"),
+    Rent: sitePath("/pages/rent/index.html?filter=rent"),
+    Buy: sitePath("/pages/buy/index.html?filter=sale"),
+    Agents: sitePath("/pages/agents/index.html"),
+    About: sitePath("/pages/about/index.html"),
+    Contact: sitePath("/pages/contact/index.html")
   };
 
   document.querySelectorAll(".nav-links a").forEach((link) => {
@@ -76,13 +76,11 @@ function initializeNavbar() {
     if (destination) link.href = destination;
   });
 
-  const currentPage = window.location.pathname.replace(/\/$/, "");
+  const normalizePath = (path) => path.replace(/\/index\.html$/, "").replace(/\/$/, "") || "/";
+  const currentPage = normalizePath(window.location.pathname);
   document.querySelectorAll(".nav-links a").forEach((link) => {
-    const linkPage = new URL(link.href, window.location.origin).pathname.replace(/\/$/, "");
-    const linkSection = linkPage.replace(/\/index\.html$/, "");
-    const isHome = linkPage === "/index.html" && currentPage === "/index.html";
-    const isCurrent = linkPage !== "/index.html" && currentPage.startsWith(linkSection);
-    link.classList.toggle("active", isHome || isCurrent);
+    const linkPage = normalizePath(new URL(link.href, window.location.origin).pathname);
+    link.classList.toggle("active", currentPage === linkPage);
   });
 
   window.showSidemenu = () => {

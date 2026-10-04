@@ -48,7 +48,7 @@ document.getElementById("propertySearch").addEventListener("submit", (event) => 
   const params = new URLSearchParams();
   if (query) params.set("q", query);
   const queryString = params.toString();
-  window.location.href = `/pages/listing/index.html${queryString ? `?${queryString}` : ""}`;
+  window.location.href = sitePath(`/pages/listing/index.html${queryString ? `?${queryString}` : ""}`);
 });
 
 function propertyCard(property) {
@@ -104,8 +104,8 @@ async function loadHomepageData() {
 
   try {
     const [propertyResponse, agentResponse] = await Promise.all([
-      fetch("/public/data/properties.json"),
-      fetch("/public/data/agents.json")
+      fetch(sitePath("/public/data/properties.json")),
+      fetch(sitePath("/public/data/agents.json"))
     ]);
     if (!propertyResponse.ok || !agentResponse.ok) throw new Error("Unable to load property data");
 

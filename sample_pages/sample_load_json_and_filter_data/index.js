@@ -1,7 +1,7 @@
 const propertyList = document.getElementById("propertyList");
 const purpose = "rent";
 
-fetch("/public/data/properties.json")
+fetch(sitePath("/public/data/properties.json"))
   .then((response) => response.json())
   .then((data) => {
     if (data.length > 0) {
