@@ -1,152 +1,73 @@
-const sectionDetailElement = document.getElementById("detailCols");
-const params = new URLSearchParams(window.location.search);
-const id = params.get("id");
+const detailContainer = document.getElementById("detailCols");
+const relatedContainer = document.getElementById("saleColsCard");
+const propertyId = Number(new URLSearchParams(window.location.search).get("id")) || 1;
 
-fetch("../../public/data/properties.json")
-  .then((response) => response.json())
-  .then((data) => {
-    console.log(data);
-    for (let i = 0; i < data.length; i++) {
-      if (data[i].id == id) {
-        sectionDetailElement.innerHTML = `
-        <div class="detail-cols">
-            <div class="left-cols">
-                <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper mySwiper2">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <img src="${data[i].images}" alt="">
-                            </div>
+function propertyCard(item) {
+  const image = Array.isArray(item.images) ? item.images[0] : item.images;
+  const price = new Intl.NumberFormat("en-US").format(item.price);
+  const suffix = item.purpose === "rent" ? "/mo" : "";
+  return `
+    <a class="property-card" href="/pages/detail-card/index.html?id=${item.id}">
+      <div class="property-image"><img src="${image}" alt="${item.title.en}"><span class="property-label">For ${item.purpose}</span></div>
+      <div class="property-body">
+        <div class="property-top"><h3 class="property-title">${item.title.en}</h3><span class="property-price">$${price}${suffix}</span></div>
+        <p class="property-location">${item.location.district}, ${item.location.city}</p>
+        <div class="property-meta"><span>▱ ${item.bedrooms} beds</span><span>◫ ${item.bathrooms} baths</span><span>□ ${item.area} ${item.unit}</span></div>
+      </div>
+    </a>`;
+}
 
-                            <div class="swiper-slide">
-                                <img src="/public/assets/images/apartment.jpeg" alt="">
-                            </div>
+function detailMarkup(property, agent) {
+  const image = Array.isArray(property.images) ? property.images[0] : property.images;
+  const price = new Intl.NumberFormat("en-US").format(property.price);
+  const suffix = property.purpose === "rent" ? " / month" : "";
+  const features = Object.values(property.features || {});
+  const postedDate = new Intl.DateTimeFormat("en-US", { month: "short", day: "numeric", year: "numeric" }).format(new Date(property.posted_date));
+  const agentName = agent?.full_name || "Apple KH advisor";
+  const agentDistrict = agent?.district || property.location.district;
+  const agentPhoto = getAgentPortrait(agent?.id || 301);
+  const address = [property.location.address, property.location.district, property.location.city].filter(Boolean).join(", ");
+  const description = `This ${property.type} in ${property.location.district} offers ${property.area} ${property.unit} of well-planned space with ${property.bedrooms} ${property.bedrooms === 1 ? "bedroom" : "bedrooms"} and ${property.bathrooms} ${property.bathrooms === 1 ? "bathroom" : "bathrooms"}. It is a practical option for anyone looking for a well-connected property in ${property.location.city}, with clear details and local guidance available from our team.`;
 
-                            <div class="swiper-slide">
-                                <img src="/public/assets/images/apartment.jpeg" alt="">
-                            </div>
+  return `
+    <nav class="detail-breadcrumb" aria-label="Breadcrumb"><a href="/index.html">Home</a><span>/</span><a href="/pages/listing/index.html">Properties</a><span>/</span><span>${property.title.en}</span></nav>
+    <header class="detail-header">
+      <div><p class="detail-eyebrow">${property.type} · For ${property.purpose}</p><h1>${property.title.en}</h1><p class="detail-location">${address}</p></div>
+      <div class="detail-price">$${price}<small>${suffix}</small></div>
+    </header>
+    <div class="detail-media"><img src="${image}" alt="${property.title.en} in ${property.location.district}"><span class="detail-badge">For ${property.purpose}</span></div>
+    <div class="detail-facts">
+      <div><strong>${property.bedrooms}</strong><span>Bedrooms</span></div><div><strong>${property.bathrooms}</strong><span>Bathrooms</span></div><div><strong>${property.area} ${property.unit}</strong><span>Floor area</span></div><div><strong>${property.is_available === "yes" ? "Available" : "Unavailable"}</strong><span>Current status</span></div>
+    </div>
+    <div class="detail-content-grid">
+      <div class="detail-main-content">
+        <section class="detail-section"><p class="detail-eyebrow">About this property</p><h2>Comfort, convenience, and a clear sense of place.</h2><p>${description}</p></section>
+        <section class="detail-section"><p class="detail-eyebrow">Property features</p><h2>Included with the property</h2><ul class="feature-list">${features.map((feature) => `<li>✓ ${feature}</li>`).join("")}</ul></section>
+        <section class="detail-section"><p class="detail-eyebrow">Location</p><h2>Explore the neighbourhood</h2><div class="location-card"><span>⌖</span><div><strong>${address}</strong><small>Listed ${postedDate}</small></div></div></section>
+      </div>
+      <aside class="detail-sidebar">
+        <div class="agent-summary"><img src="${agentPhoto}" alt="${agentName}"><div><small>Your property advisor</small><strong>${agentName}</strong><span>${agentDistrict} specialist</span></div><a href="/pages/agent-detail/index.html?id=${agent?.id || 301}">View agent profile →</a></div>
+        <div class="inquiry-card"><p class="detail-eyebrow">Arrange a viewing</p><h2>Interested in this property?</h2><p>Share your details and an advisor will help with availability, questions, and viewing times.</p><form class="inquiry-form" action="/pages/Success/index.html"><label>Full name<input type="text" name="name" placeholder="Your full name" required></label><label>Email<input type="email" name="email" placeholder="you@example.com" required></label><label>Message<textarea name="message" placeholder="I would like to arrange a viewing…"></textarea></label><button type="submit">Request a viewing</button></form></div>
+      </aside>
+    </div>`;
+}
 
-                            <div class="swiper-slide">
-                                <img src="/public/assets/images/apartment.jpeg" alt="">
-                            </div>
-                        </div>
-                    </div>
+Promise.all([
+  fetch("../../public/data/properties.json").then((response) => response.json()),
+  fetch("../../public/data/agents.json").then((response) => response.json())
+]).then(([properties, agents]) => {
+  const property = properties.find((item) => Number(item.id) === propertyId);
+  if (!property) throw new Error("Property not found");
+  const agent = agents.find((item) => Number(item.id) === Number(property.agent_id));
+  document.title = `${property.title.en} | Apple KH Real Estate`;
+  detailContainer.innerHTML = detailMarkup(property, agent);
 
-            </div>
-
-            <div class="right-cols">
-                <div class="title-cols">
-                    <h1>${data[i].title.en}</h1>
-                </div>
-
-                <div class="location-cols">
-                    <span><i class="fas fa-home"></i> ${data[i].type}</span>
-                    <span><i class="fas fa-map-marker-alt"></i>${data[i].location.district}</span>
-                </div>
-
-                <div class="location-cols">
-                    <span><i class="fa-solid fa-bed"></i> ${data[i].bedrooms} Bedrooms</span>
-                    <span><i class="fa-solid fa-bath"></i> ${data[i].bathrooms} Bathrooms</span>
-                    <span><i class="fas fa-shield-alt"></i> Secure 100%</span>
-                    <span><i class="far fa-calendar"></i> Since: <strong>${data[i].posted_date}</strong></span>
-                </div>
-
-                <div class="feature-cols">
-                    <h1>Feature</h1>
-
-                    <div class="cols-content">
-                        <span><i class="far fa-dot-circle"></i> ${data[i].features.feature_1}</span>
-                        <span><i class="far fa-dot-circle"></i> ${data[i].features.feature_2}</span>
-                        <span><i class="far fa-dot-circle"></i> ${data[i].features.feature_3}</span>
-                    </div>
-                </div>
-
-                <div class="description-cols">
-                    <h1>Description</h1>
-                    <p>
-                        Discover the ideal urban living space in this fully furnished studio unit, perfectly situated on the 6th floor of TK Star
-                        Condo in TK. With a generous gross area of 52.49 square meters (net 40.2 sqm), this thoughtfully designed unit combines
-                        comfort and practicality, offering an efficient layout that maximizes both space and functionality. Ready for immediate 
-                        occupancy, it comes fully furnished with quality fixtures and fittings, allowing you to move in effortlessly and start enjoying
-                        your new home from day one.
-
-                        <br><br>
-
-                        This unit also offers the advantages of long-term investment with its freehold title, providing peace of mind and lasting 
-                        value. Ideally located opposite TK Avenue, residents enjoy unmatched convenience with a wide array of international schools, 
-                        office buildings, shopping centers, and lifestyle amenities just steps away. Perfect for professionals, expatriates, or 
-                        anyone seeking a modern, hassle-free urban lifestyle, this studio truly embodies both comfort and convenience in one 
-                        exceptional package.
-                    </p>
-                </div>
-
-                <div class="map">
-                    <h1>Location</h1>
-
-                    <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m12!1m8!1m3!1d3909.101286338943!2d104.8865743!3d11.5445916!3m2!1i1024!2i768!4f13.1!2m1!1spse%20institute!5e0!3m2!1sen!2skh!4v1764572232016!5m2!1sen!2skh" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
-                </div>
-
-                <div class="form-detail">
-                    <h1>Agent Contact </h1>
-                    <p>Have questions or want a viewing? Get in touch for quick support and property details.</p>
-
-                    <form action="">
-                        <div class="subscribe__row">
-                            <label for="">Full name</label>
-                            <input class="input" type="text" placeholder="Enter your fullname" aria-label="Name">
-                        </div>
-
-                        <div class="subscribe__row">
-                            <label for="">Email</label>
-                            <input class="input" type="email" placeholder="Enter your email" aria-label="Name">
-                        </div>
-
-                        <div class="subscribe__row">
-                            <label for="">How can agent help?</label>
-                            <textarea name="" id="" placeholder="Enter your message..."></textarea>
-                        </div>
-
-                        <div class="subscribe__row">
-                            <input class="sub-btn" type="submit" value="Subscribe">
-                        </div>  
-                    </form>
-                </div>
-            </div>
-        </div>
-        `;
-        break;
-      }
-    }
-
-    // disaplay on the screen
-    const sectionSaleElement = document.getElementById("saleColsCard");
-
-    for (let i = 0; i < 4; i++) {
-      sectionSaleElement.innerHTML += `
-            <article class="card-items" href="">
-                <div class="card-items_media">
-                    <a href="/pages/detail-card/index.html?id=${data[i].id}"><img src="${data[i].images}" alt=""></a>
-                </div>
-
-                <div class="card-items__body">
-                    <div class="top-cols-item">
-                        <h2>USD ${data[i].price}</h2>
-                        <small><i class="fa-solid fa-star"></i> 4.9/5.0</small>
-                    </div>
-
-                    <h1 class="title-cols">${data[i].title.en}</h1>
-                    <p class="txt-cols">${data[i].location.district}</p>
-                    <small>
-                        <i class="fa-solid fa-bed"></i> ${data[i].bedrooms} Bedroom
-                        <i class="fa-solid fa-bath"></i> ${data[i].bathrooms} Bathroom
-                    </small>
-
-                    <div class="card-btn">
-                        <a href="/pages/detail-card/index.html?id=${data[i].id}">View Detail</a>
-                    </div>
-                </div>
-            </article>
-        `;
-    }
-  });
+  const similar = properties
+    .filter((item) => item.id !== property.id && (item.type === property.type || item.location.city === property.location.city))
+    .slice(0, 3);
+  relatedContainer.innerHTML = similar.map(propertyCard).join("");
+}).catch((error) => {
+  console.error(error);
+  detailContainer.innerHTML = '<div class="detail-loading"><h1>Property not found</h1><p>Please return to the listings and choose another property.</p></div>';
+  relatedContainer.innerHTML = "";
+});

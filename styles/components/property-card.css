@@ -1,0 +1,121 @@
+.property-grid,
+.card-grid-groups {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.property-card {
+  display: block;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: var(--surface, var(--card));
+  box-shadow: var(--shadow-sm, var(--shadow-soft));
+  color: var(--text, var(--ink));
+  text-decoration: none;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.property-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg, var(--shadow));
+}
+
+.property-image {
+  position: relative;
+  height: 245px;
+  overflow: hidden;
+  background: var(--surface-soft, var(--acent-secondary));
+}
+
+.property-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .5s ease;
+}
+
+.property-card:hover .property-image img {
+  transform: scale(1.035);
+}
+
+.property-label {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .9);
+  color: #17211b;
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: capitalize;
+  backdrop-filter: blur(8px);
+}
+
+.property-body {
+  padding: 20px;
+}
+
+.property-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.property-title {
+  color: inherit;
+  font-family: "Manrope", "Public Sans", sans-serif;
+  font-size: 1.08rem;
+  line-height: 1.35;
+}
+
+.property-price {
+  flex: 0 0 auto;
+  color: var(--brand-dark, var(--acent-hover));
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.property-location {
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.property-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 17px;
+  padding-top: 15px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.property-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+@media (max-width: 900px) {
+  .property-grid,
+  .card-grid-groups {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .property-grid,
+  .card-grid-groups {
+    grid-template-columns: 1fr;
+  }
+
+  .property-image {
+    height: 230px;
+  }
+}

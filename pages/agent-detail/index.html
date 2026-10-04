@@ -8,12 +8,12 @@
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="../../styles/main.css">
     <link rel="stylesheet" href="../../styles/components/nav-second.css">
-    <link rel="stylesheet" href="../../styles/components/card-items.css">
+    <link rel="stylesheet" href="../../styles/components/property-card.css">
     <link rel="stylesheet" href="../../styles/components/agent-card.css">
     <link rel="stylesheet" href="../../styles/components/subscription.css">
+    <link rel="stylesheet" href="../../styles/components/footer.css">
     <link rel="icon" type="image/png" href="/public/assets/images/logo.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
-    <link rel="stylesheet" href="/styles/components/card-items.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700&display=swap" />
     
 
@@ -82,120 +82,49 @@
         </nav>
     </header>
 
-    <section class="container" id="agentCardDetail">
-        <div class="agent-detail-cols">
-            <div class="agent-cols">
-                <div class="img">
-                    <img src="/public/assets/images/agent  pf.png" alt="Agent Photo">
-                </div>
-
-                <div class="agent-pf">
-                    <h1>Aiko Yuri</h1>
-                    <p>Toul Kok Agent</p>
-                    <div class="contact-cols">
-                        <span><i class="fa-solid fa-phone"></i> 012 345 678</span>
-                        <span><i class="fas fa-envelope"></i> example@gmail.com</span>
-                    </div>
+    <main class="agent-profile-shell container" id="agentCardDetail">
+        <section class="agent-profile-hero">
+            <div class="agent-profile-photo"><img id="agentPhoto" src="" alt=""></div>
+            <div class="agent-profile-copy">
+                <p class="profile-eyebrow">Apple KH property advisor</p>
+                <h1 id="agentName">Property advisor</h1>
+                <p class="agent-specialty" id="agentSpecialty"></p>
+                <p class="agent-description" id="agentDescription"></p>
+                <div class="agent-actions">
+                    <a class="agent-primary-action" id="agentPhone" href="#">Call agent</a>
+                    <a class="agent-secondary-action" id="agentEmail" href="#">Send email</a>
                 </div>
             </div>
-
-            <div class="card-grid-groups agent-infor" aria-label="Property categories">
-                <!-- Feature Section -->
-                <div class="feature">
-                    <h1>Featured Offers</h1>
-                    <div class="feature-items">
-                        <div class="feature-item">
-                            <span class="icon"><span class="material-symbols-outlined">apartment</span> </span>
-                            <p>Condo Specialist with 5+ Years Experience</p>
-                        </div>
-                        <div class="feature-item">
-                            <span class="icon"><i class="fas fa-star"></i></span>
-                            <p>Top Rated Local Agent</p>
-                        </div>
-                        <div class="feature-item">
-                            <span class="icon"><span class="material-symbols-outlined">bar_chart_4_bars</span></span>
-                            <p>Proven Track Record in Sales</p>
-                        </div>
-                        <div class="feature-item">
-                            <span class="icon"><i class="fas fa-handshake"></i></span>
-                            <p>Personalized Service for Every Client</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Personal Profile Section -->
-                <div class="personal">
-                    <h1>About Me</h1>
-                    <p>Hello! I'm , a dedicated real estate agent specializing in condos. I believe buying or selling a home should be smooth and stress-free.</p>
-                    <p>With deep knowledge of the local market, I guide my clients every step of the way—from understanding trends to closing the deal. My goal is to provide personalized service tailored to your needs.</p>
-                    <p>Feel free to explore my listings and profile. I'm always happy to answer questions and help you achieve your real estate goals!</p>
-                </div>
+            <div class="agent-profile-stats">
+                <div><strong>5+</strong><span>Years local experience</span></div>
+                <div><strong>4.9</strong><span>Client rating</span></div>
+                <div><strong id="languageCount">2</strong><span>Languages</span></div>
             </div>
+        </section>
 
-            <div class="container subscribe">
-                <h2 class="section__title" style="margin:0">Let’s us help</h2>
-                <p class="section__hint">Latest affordable listings, once a week</p>
+        <section class="agent-profile-grid">
+            <article class="profile-panel">
+                <p class="profile-eyebrow">Local expertise</p>
+                <h2>A clear, personal approach to property.</h2>
+                <p id="agentBio"></p>
+                <p>From the first shortlist to the final paperwork, you receive practical advice, transparent communication, and recommendations shaped around your goals.</p>
+            </article>
+            <aside class="profile-panel expertise-panel">
+                <h2>What you can expect</h2>
+                <ul>
+                    <li><span>01</span>Neighbourhood-specific market guidance</li>
+                    <li><span>02</span>Carefully selected property recommendations</li>
+                    <li><span>03</span>Support through viewing and negotiation</li>
+                    <li><span>04</span>Responsive service in your preferred language</li>
+                </ul>
+            </aside>
+        </section>
 
-                <form action="/pages/Success/index.html">
-                    <div class="subscribe__row">
-                        <label for="">Type</label>
-
-                        <select class="subscribe__select" aria-label="Type" id="inquiryType">
-                            <option value="">select</option>
-                            <option>Room</option>
-                            <option>Apartment</option>
-                            <option>House</option>
-                        </select>
-                    </div>
-
-                    <div class="subscribe__row">
-                        <label for="">Full name</label>
-                        <input class="input" type="text" placeholder="Enter your full name" aria-label="Name">
-                    </div>
-
-                    <div class="subscribe__row">
-                        <label for="">Email</label>
-                        <input class="input" type="email" placeholder="Enter your email" aria-label="Email">
-                    </div>
-
-                    <div class="subscribe__row">
-                        <label for="">Phone number</label>
-                        <input class="input" type="tel" placeholder="Enter your phnne number" aria-label="Phone Number">
-                    </div>
-
-                    <div class="subscribe__row">
-                        <label for="">Location</label>
-
-                        <select class="subscribe__select" aria-label="Location" id="inquiryLocation">
-                            <option value="">select</option>
-                            <option>Phnom Pen</option>
-                            <option>Apartment</option>
-                            <option>House</option>
-                        </select>
-                    </div>
-
-                    <div class="subscribe-btn">
-                        <input class="sub-btn" type="submit" value="Send">
-                    </div>
-                </form>  
-            </div>
-        </div>
-        
-    </section>
-
-   <section class="container">
-        <h1>Related to Aiko Yuri </h1>
-
-        <div class="card-grid-groups" id="relatedToAgent" aria-label="Latest properties">
-            
-        </div>
-
-        <div class="section__head">
-            <a class="section__link" href="/pages/listing/index.html">Show More</a>
-        </div>
-
-        <script src="index.js"></script>
-   </section>
+        <section class="related-properties">
+            <div class="related-heading"><div><p class="profile-eyebrow">Selected by your advisor</p><h2>Recommended properties</h2></div><a href="/pages/listing/index.html">View all →</a></div>
+            <div class="card-grid-groups" id="relatedToAgent" aria-label="Recommended properties"></div>
+        </section>
+    </main>
 
 
     <footer class="footer">

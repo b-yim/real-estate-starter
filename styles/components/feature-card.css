@@ -2,114 +2,45 @@
   width: 100%;
   max-width: 100%;
   overflow: hidden;
+  padding-block: 8px 18px;
 }
 
 .scroller__track {
   display: flex;
   width: max-content;
-  gap: 1rem;
+  gap: 24px;
   will-change: transform;
-  animation: marquee var(--marquee-duration, 5s) linear infinite;
+  animation: marquee var(--marquee-duration, 30s) linear infinite;
 }
 
-.feature-card {
-  display: block; /* since they're <a> now */
-  text-decoration: none;
-  color: inherit;
-  cursor: pointer;
+.scroller:hover .scroller__track {
+  animation-play-state: paused;
 }
 
+.scroller__group,
 .feature-card {
   display: flex;
-  gap: 18px;
+  gap: 24px;
 }
 
-.feature-card .card {
-  flex: 0 0 320px;
-  overflow: hidden;
-  padding: 10px;
-  border: 1px solid var(--border);
-  border-radius: 18px;
-  background: var(--card);
-  box-shadow: var(--shadow-soft);
-  transition: transform .25s ease, box-shadow .25s ease;
+.feature-card .property-card {
+  flex: 0 0 380px;
 }
 
-.feature-card .card:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow);
-}
-
-.card__media {
-  aspect-ratio: 16/10;
-  width: 100%;
-  border-radius: 12px;
-  object-fit: cover;
-}
-
-.card__body {
-  padding: 12px 4px;
-}
-
-.card__body small {
-  display: block;
-  color: var(--muted);
-}
-
-.card__body i {
-  color: var(--muted);
-}
-
-.card__title {
-  margin: 0 0 6px;
-  font-size: 1.30rem;
-  display: inline-block;
-}
-
-.badge {
-  float: inline-end;
-  color: var(--muted);
-}
-
-.card__meta {
-  font-size: 1.4rem;
-  font-weight: 800;
-  color: var(--acent-hover);
-}
-
-
-
-/* responsive feature card */
 @media (max-width: 768px) {
+  .scroller__track,
+  .scroller__group,
   .feature-card {
-    gap: 12px;
+    gap: 14px;
   }
 
-  .feature-card .card { flex-basis: 260px; }
-
-  .card__media {
-    border-radius: 8px;
+  .feature-card .property-card {
+    flex-basis: 300px;
   }
+}
 
-  .card__body {
-    padding: 8px 3px;
-  }
-
-  .card__body small,
-  .card__body i {
-    font-size: 0.8rem;
-  }
-
-  .card__title {
-    font-size: 1.1rem;
-    margin-bottom: 4px;
-  }
-
-  .card__meta {
-    font-size: 1.1rem;
-  }
-
-  .badge {
-    font-size: 0.9rem;
+@media (prefers-reduced-motion: reduce) {
+  .scroller__track {
+    animation-play-state: paused;
   }
 }

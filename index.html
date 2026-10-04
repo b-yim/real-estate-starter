@@ -13,6 +13,7 @@
     href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="/styles/home.css">
+  <link rel="stylesheet" href="/styles/components/property-card.css">
 </head>
 
 <body>
@@ -55,16 +56,18 @@
           <div class="hero-actions"><a class="button button-primary" href="/pages/listing/index.html">Explore properties
               <span>→</span></a><a class="button button-quiet" href="/pages/contact/index.html">Talk to an agent</a>
           </div>
-          <div class="hero-proof" aria-label="Customer rating">
-          </div>
         </div>
-        <form class="search-panel container" id="propertySearch" role="search">
-          <label class="visually-hidden" for="propertyQuery">Search properties</label>
-          <div class="search-input-wrap">
-            <span class="search-icon" aria-hidden="true"></span>
-            <input id="propertyQuery" type="search" placeholder="Search by city, district, or property" autocomplete="off">
+        <form class="search-panel" id="propertySearch" role="search">
+          <div class="search-panel__field">
+            <label for="propertyQuery">Find a property</label>
+            <div class="search-input-wrap">
+              <span class="search-icon" aria-hidden="true"></span>
+              <input id="propertyQuery" name="q" type="search" placeholder="City, district, or property type"
+                autocomplete="off" enterkeyhint="search">
+            </div>
           </div>
-          <button class="search-button" type="submit">Search</button>
+          <button class="search-button" type="submit"><span>Search</span><span class="search-arrow"
+              aria-hidden="true">→</span></button>
         </form>
         <div class="hero-visual">
           <div class="hero-image-wrap"><img src="/public/assets/images/hero-img.jpeg"

@@ -6,23 +6,19 @@ fetch("/public/data/properties.json")
  .then((data) => {
     if (data.length > 0) {
         for (let i = 0; i < 20; i++) {
-            console.log(data);
-            
+            const item = data[i];
+            const image = Array.isArray(item.images) ? item.images[0] : item.images;
+            const price = new Intl.NumberFormat("en-US").format(item.price);
+            const suffix = item.purpose === "rent" ? "/mo" : "";
             sectionFeatureElement.innerHTML += `
-            <a class="card" href="/pages/detail-card/index.html?id=${data[i].id}">
-                <img class="card__media" src="${data[i].images}"
-                    alt="" />
-                <div class="card__body">
-                    <small>
-                        <i class="fa-solid fa-bed"></i> ${data[i].bedrooms} Bedroom
-                        <i class="fa-solid fa-bath"></i> ${data[i].bathrooms}  Bathroom
-                    </small>
-                    <h3 class="card__title">${data[i].title.en}</h3>
-                    <span class="badge">${data[i].location.district}</span>
-                    <div class="card__meta">USD ${data[i].price}</div>
+              <a class="property-card" href="/pages/detail-card/index.html?id=${item.id}">
+                <div class="property-image"><img src="${image}" alt="${item.title.en}"><span class="property-label">For ${item.purpose}</span></div>
+                <div class="property-body">
+                  <div class="property-top"><h3 class="property-title">${item.title.en}</h3><span class="property-price">$${price}${suffix}</span></div>
+                  <p class="property-location">${item.location.district}, ${item.location.city}</p>
+                  <div class="property-meta"><span>▱ ${item.bedrooms} beds</span><span>◫ ${item.bathrooms} baths</span><span>□ ${item.area} ${item.unit}</span></div>
                 </div>
-            </a>
-        `;
+              </a>`;
         }
 
         initializeFeatureScroller();

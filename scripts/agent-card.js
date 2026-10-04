@@ -11,7 +11,7 @@ fetch("../public/data/agents.json")
             <a class="agent-card" href="/pages/agent-detail/index.html?id=${data[i].id}">
                 <div class="agent-card-content">
                     <div class="img-cols">
-                        <img src="${data[i].profile_photo}" alt="${data[i].full_name}" onerror="this.onerror=null; this.src='/public/assets/images/agent.jpg'">
+                        <img src="${data[i].profile_photo}" alt="${data[i].full_name}">
                     </div>
 
                     <h1>${data[i].full_name}</h1>

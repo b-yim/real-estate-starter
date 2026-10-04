@@ -4,7 +4,7 @@
   overflow: visible;
   border: 1px solid var(--border);
   border-radius: 18px;
-  min-height: 320px;
+  min-height: 390px;
   height: auto;
   cursor: pointer;
   background-color: var(--card);
@@ -16,7 +16,7 @@
 .agent-card-content {
   width: 100%;
   height: 100%;
-  padding: 30px 24px;
+  padding: 24px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -44,12 +44,12 @@
 }
 
 .img-cols {
-    width: 82px;
-    height: 82px;
+    width: 150px;
+    height: 180px;
     overflow: hidden;
-    border-radius: 50%;
+    border-radius: 18px 52px 18px 18px;
     background-color: var(--acent-secondary);
-    border: 4px solid var(--acent-secondary);
+    border: 0;
     margin-bottom: 16px;
 }
 

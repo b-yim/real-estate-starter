@@ -1,311 +1,312 @@
-.about-us-cols {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    grid-auto-rows: minmax(200px);
-    gap: 2rem;
-    margin-top: 80px;
+.about-page {
+  padding-bottom: 96px;
 }
 
-.left-cols {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+.about-eyebrow {
+  margin: 0 0 14px;
+  color: var(--acent-hover);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .15em;
+  text-transform: uppercase;
 }
 
-.left-cols h1 {
-    font-size: 2.5rem;
-    color: var(--text);
-    margin-top: 20px;
+.about-hero {
+  display: grid;
+  grid-template-columns: .9fr 1.1fr;
+  align-items: center;
+  gap: 70px;
+  padding-top: 24px;
 }
 
-.left-cols span {
-    font-size: 1.8rem;
-    color: var(--text);
-    font-weight: 600;
+.about-hero-copy h1,
+.about-story h2,
+.about-section-heading h2,
+.about-cta h2 {
+  color: var(--text);
+  font-family: "Public Sans", sans-serif;
+  letter-spacing: -.05em;
+  line-height: 1.06;
 }
 
-.left-cols small {
-    font-size: 2rem;
-    color: var(--text-secondary);
-    font-weight: 600;
+.about-hero-copy h1 {
+  margin: 0;
+  font-size: clamp(3.2rem, 6vw, 5.7rem);
 }
 
-.left-cols p {
-    font-size: 1.1rem;
-    color: var(--text);
-    font-weight: 300;
-    line-height: 1.6;
-    margin-top: 20px;
+.about-hero-copy h1 span {
+  color: var(--acent-hover);
 }
 
-.right-cols {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+.about-hero-copy>p:not(.about-eyebrow) {
+  max-width: 560px;
+  margin-top: 24px;
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.7;
 }
 
-.right-cols img {
-    width: 100%;
-    height: 100%;
-    border-radius: 12px;
-    object-fit: cover;
+.about-hero-copy>a {
+  display: inline-flex;
+  align-items: center;
+  gap: 24px;
+  min-height: 50px;
+  margin-top: 30px;
+  padding: 0 22px;
+  border-radius: 999px;
+  background: var(--acent);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 800;
 }
 
-
-
-
-
-.ourvision-us-cols{
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    grid-auto-rows: minmax(200px);
-    gap: 2rem;
-    margin-top: 60px;
-}
-h1{
-    margin-top: 0;
-    font-size: 2rem;
-}
-p{
-    font-size: 1.1rem;
-    line-height: 1.4;
-    margin-top: 14px;
-}
-
-
-.card-top {
+.about-hero-image {
   position: relative;
-  overflow: hidden;
-  border-radius: 1rem;
-  height: 300px;
-  background-color: var(--card);
-  text-decoration: none;
-  transition: transform 0.3s ease;
+  height: 570px;
 }
 
-.card-top-content {
+.about-hero-image>img {
   width: 100%;
   height: 100%;
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  border-radius: 110px 24px 24px 24px;
+  object-fit: cover;
+  box-shadow: var(--shadow);
 }
 
-.card-top-content span {
-  color: var(--text-highlight);
-  font-size: 26px;
-  margin-bottom: 10px;
+.about-hero-image>div {
+  position: absolute;
+  right: 22px;
+  bottom: 22px;
+  max-width: 250px;
   padding: 18px;
-  border-radius: 50%;
-  background-color: var(--acent-hover);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, .92);
+  color: #17211b;
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(12px);
 }
 
-.card-top-content h1 {
-  color: var(--text);
-  font-size: 1.3rem;
+.about-hero-image strong,
+.about-hero-image span {
+  display: block;
 }
 
-.card-top-content p {
-  color: var(--text);
-  font-size: 1rem;
-  font-weight: 300;
+.about-hero-image span {
+  margin-top: 4px;
+  color: #69736c;
+  font-size: 12px;
+}
+
+.about-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: 54px;
+  padding-block: 28px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.about-stats div {
+  padding-inline: 28px;
+  border-right: 1px solid var(--line);
   text-align: center;
 }
 
-/* Make image fill the whole card */
-.card-top__media {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0.7;
-  transition: opacity 0.4s ease, transform 0.4s ease;
+.about-stats div:last-child {
+  border: 0;
 }
 
-/* Text overlay at bottom */
-.card-top__body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  height: 100%;
-  padding: 1rem;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+.about-stats strong,
+.about-stats span {
+  display: block;
 }
 
-.card-top__title {
-  font-size: 1.4rem;
+.about-stats strong {
+  color: var(--text);
+  font-size: 28px;
+}
+
+.about-stats span {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.about-story {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 90px;
+  padding-block: 110px;
+}
+
+.about-story h2,
+.about-section-heading h2,
+.about-cta h2 {
   margin: 0;
+  font-size: clamp(2.3rem, 4vw, 3.8rem);
 }
 
-.card-top__meta {
-  font-size: 0.9rem;
-  opacity: 0.85;
+.about-story>div:last-child p {
+  margin: 0 0 20px;
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.8;
 }
 
-/* Hover effect */
-.card-top:hover .card-top__media {
-  opacity: 1;
-  transform: scale(1.05);
+.about-values {
+  padding-block: 96px;
+  background: var(--acent-secondary);
 }
 
-.card-top:hover {
-  transform: translateY(-4px);
-}
-h1{
-  margin-top:5%;
+.about-section-heading {
+  max-width: 700px;
+  margin-bottom: 42px;
 }
 
-
-
-
-.subscription-card {
-    position: relative;
-    width: 100%;
-    max-width: 1200px;
-    min-height: 320px;
-    border-radius: 1.2rem;
-    overflow: hidden;
-    transition: transform 0.3s ease;
-    margin: 15px auto;
-    margin-bottom: 45px;
+.value-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
 }
 
-.subscription-card:hover {
-    transform: translateY(-5px);
+.value-grid article {
+  min-height: 255px;
+  padding: 26px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--card);
 }
 
-.sub-card-bg {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
+.value-grid article>span {
+  color: var(--acent-hover);
+  font-size: 11px;
+  font-weight: 800;
 }
 
-.sub-card-bg img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: brightness(70%);
+.value-grid h3 {
+  margin-top: 48px;
+  color: var(--text);
+  font-size: 20px;
 }
 
-.sub-card-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 2;
-    padding: 40px 30px;
-    display: flex;
+.value-grid p {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.about-team {
+  padding-block: 105px;
+}
+
+.team-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  max-width: none;
+}
+
+.team-heading>a {
+  padding-bottom: 5px;
+  border-bottom: 1px solid var(--text);
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.about-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 54px;
+  border-radius: 28px;
+  background: var(--acent);
+}
+
+.about-cta h2,
+.about-cta .about-eyebrow {
+  color: #fff;
+}
+
+.about-cta>a {
+  flex: 0 0 auto;
+  padding: 14px 22px;
+  border-radius: 999px;
+  background: var(--acent-hover);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+@media (max-width: 900px) {
+  .about-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .about-hero-image {
+    height: 480px;
+  }
+
+  .about-story {
+    gap: 40px;
+  }
+
+  .value-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .about-page {
+    padding-bottom: 64px;
+  }
+
+  .about-hero {
+    gap: 44px;
+    padding-top: 10px;
+  }
+
+  .about-hero-image {
+    height: 390px;
+  }
+
+  .about-hero-image>img {
+    border-radius: 70px 20px 20px 20px;
+  }
+
+  .about-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .about-stats div:nth-child(2) {
+    border-right: 0;
+  }
+
+  .about-stats div:nth-child(-n+2) {
+    padding-bottom: 22px;
+  }
+
+  .about-story {
+    grid-template-columns: 1fr;
+    padding-block: 78px;
+  }
+
+  .value-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .value-grid article {
+    min-height: 220px;
+  }
+
+  .team-heading,
+  .about-cta {
+    align-items: flex-start;
     flex-direction: column;
-    text-align: center;
-    color: #fff;
-    gap: 15px;
-    width: 90%;
-    max-width: 700px;
-}
+  }
 
-.sub-card-content h1 {
-    font-size: clamp(1.5rem, 3vw, 2.2rem);
-    margin: 0;
-}
-
-.sub-card-content p {
-    font-size: clamp(0.9rem, 2vw, 1rem);
-    margin: 0;
-}
-
-.subscription-inputs {
-    position: relative;
-    width: 100%;
-}
-
-.fill-in {
-    width: 100%;
-    height: 48px;
-    padding: 12px 130px 12px 15px;
-    border-radius: 10px;
-    border: none;
-    font-size: clamp(0.9rem, 2vw, 1rem);
-    outline: none;
-    background: rgba(255,255,255,0.9);
-    color: #333;
-    box-sizing: border-box;
-}
-
-.submit {
-    position: absolute;
-    top: 50%;
-    right: 8px;
-    transform: translateY(-50%);
-    padding: 10px 20px;
-    border-radius: 8px;
-    border: none;
-    background: var(--acent);
-    color: #fff;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.3s ease, transform 0.3s ease;
-}
-
-.submit:hover {
-    background-color: var(--acent-hover);
-    transform: translateY(-50%) scale(1.02);
-}
-
-#agentCard {
-    margin-bottom: 24px;
-}
-
-.section__link {
-    margin-bottom: 26px;
-}
-
-
-
-
-
-
-
-@media (max-width: 768px) {
-    .left-cols {
-        gap: 2px;
-    }
-
-    .left-cols h1 {
-        margin-top: 0;
-        font-size: 2rem;
-    }
-
-    .left-cols span {
-        font-size: 1.2rem;
-    }
-
-    .left-cols small {
-        font-size: 1.3rem;
-    }
-
-    .left-cols p {
-        font-size: 1rem;
-        line-height: 1.4;
-        margin-top: 18px;
-    }
-
-    .about-us-cols {
-        grid-template-columns: 1fr;
-    }
-
-    .ourvision-us-cols{
-        margin-top: 20px;
-    }
-
-    .ourvision-us-cols p{
-        margin-top: 8px;
-    }
+  .about-cta {
+    padding: 32px 24px;
+  }
 }

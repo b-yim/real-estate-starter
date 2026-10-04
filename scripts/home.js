@@ -47,7 +47,8 @@ document.getElementById("propertySearch").addEventListener("submit", (event) => 
   const query = document.getElementById("propertyQuery").value.trim();
   const params = new URLSearchParams();
   if (query) params.set("q", query);
-  window.location.href = `/pages/listing/index.html?${params.toString()}`;
+  const queryString = params.toString();
+  window.location.href = `/pages/listing/index.html${queryString ? `?${queryString}` : ""}`;
 });
 
 function propertyCard(property) {
@@ -79,9 +80,16 @@ function propertyCard(property) {
 }
 
 function agentCard(agent) {
+  const portraits = [
+    "/public/assets/images/agents/agent-dara.png",
+    "/public/assets/images/agents/agent-vibol.png",
+    "/public/assets/images/agents/agent-sreypov.png",
+    "/public/assets/images/agents/agent-vibol.png"
+  ];
+  const portrait = portraits[Math.abs(Number(agent.id) - 301) % portraits.length];
   return `
     <a class="agent-card" href="/pages/agent-detail/index.html?id=${agent.id}">
-      <div class="agent-photo"><img src="${agent.profile_photo}" alt="${agent.full_name}" onerror="this.onerror=null;this.src='/public/assets/images/agent.jpg'"></div>
+      <div class="agent-photo"><img src="${portrait}" alt="${agent.full_name}"></div>
       <h3>${agent.full_name}</h3>
       <span>${agent.district}</span>
       <p>${agent.description}</p>

@@ -2,7 +2,7 @@
   {
     "id": 301,
     "full_name": "Sok Dara",
-    "profile_photo": "images/agents/sok_dara.jpg",
+    "profile_photo": "/public/assets/images/agents/agent-dara.png",
     "contact": {
       "phone": "010-234-567",
       "email": "sok.dara@cityhomes.com"
@@ -14,7 +14,7 @@
   {
     "id": 302,
     "full_name": "Chan Vibol",
-    "profile_photo": "images/agents/chan_vibol.jpg",
+    "profile_photo": "/public/assets/images/agents/agent-vibol.png",
     "contact": {
       "phone": "011-456-789",
       "email": "chan.vibol@cityhomes.com"
@@ -26,7 +26,7 @@
   {
     "id": 303,
     "full_name": "Kim Sreypov",
-    "profile_photo": "images/agents/kim_sreypov.jpg",
+    "profile_photo": "/public/assets/images/agents/agent-sreypov.png",
     "contact": {
       "phone": "012-678-345",
       "email": "kim.sreypov@cityhomes.com"
@@ -38,7 +38,7 @@
   {
     "id": 304,
     "full_name": "Lim Rithy",
-    "profile_photo": "images/agents/lim_rithy.jpg",
+    "profile_photo": "/public/assets/images/agents/agent-vibol.png",
     "contact": {
       "phone": "097-888-123",
       "email": "lim.rithy@cityhomes.com"
@@ -50,7 +50,7 @@
   {
     "id": 305,
     "full_name": "Men Sopheak",
-    "profile_photo": "images/agents/men_sopheak.jpg",
+    "profile_photo": "/public/assets/images/agents/agent-dara.png",
     "contact": {
       "phone": "069-445-889",
       "email": "men.sopheak@cityhomes.com"
@@ -62,7 +62,7 @@
   {
     "id": 306,
     "full_name": "Touch Socheata",
-    "profile_photo": "images/agents/touch_socheata.jpg",
+    "profile_photo": "/public/assets/images/agents/agent-socheata.png",
     "contact": {
       "phone": "015-998-221",
       "email": "touch.socheata@cityhomes.com"
@@ -74,7 +74,7 @@
   {
     "id": 307,
     "full_name": "Phan Chenda",
-    "profile_photo": "images/agents/phan_chenda.jpg",
+    "profile_photo": "/public/assets/images/agents/agent-sreypov.png",
     "contact": {
       "phone": "093-445-210",
       "email": "phan.chenda@cityhomes.com"
@@ -86,7 +86,7 @@
   {
     "id": 308,
     "full_name": "Vong Sovath",
-    "profile_photo": "images/agents/vong_sovath.jpg",
+    "profile_photo": "/public/assets/images/agents/agent-vibol.png",
     "contact": {
       "phone": "099-177-334",
       "email": "vong.sovath@cityhomes.com"
@@ -98,7 +98,7 @@
   {
     "id": 309,
     "full_name": "Ros Lida",
-    "profile_photo": "images/agents/ros_lida.jpg",
+    "profile_photo": "/public/assets/images/agents/agent-socheata.png",
     "contact": {
       "phone": "016-432-889",
       "email": "ros.lida@cityhomes.com"
@@ -110,7 +110,7 @@
   {
     "id": 310,
     "full_name": "Khim Borey",
-    "profile_photo": "images/agents/khim_borey.jpg",
+    "profile_photo": "/public/assets/images/agents/agent-dara.png",
     "contact": {
       "phone": "010-334-112",
       "email": "khim.borey@cityhomes.com"
@@ -122,7 +122,7 @@
   {
     "id": 311,
     "full_name": "Seyha Chan",
-    "profile_photo": "images/agents/seyha_chan.jpg",
+    "profile_photo": "/public/assets/images/agents/agent-vibol.png",
     "contact": {
       "phone": "017-229-443",
       "email": "seyha.chan@cityhomes.com"
@@ -134,7 +134,7 @@
   {
     "id": 312,
     "full_name": "Pich Sokha",
-    "profile_photo": "images/agents/pich_sokha.jpg",
+    "profile_photo": "/public/assets/images/agents/agent-sreypov.png",
     "contact": {
       "phone": "092-556-002",
       "email": "pich.sokha@cityhomes.com"
@@ -146,7 +146,7 @@
   {
     "id": 313,
     "full_name": "Ung Sovann",
-    "profile_photo": "images/agents/ung_sovann.jpg",
+    "profile_photo": "/public/assets/images/agents/agent-dara.png",
     "contact": {
       "phone": "086-667-990",
       "email": "ung.sovann@cityhomes.com"
@@ -158,7 +158,7 @@
   {
     "id": 314,
     "full_name": "Nhem Rasmey",
-    "profile_photo": "images/agents/nhem_rasmey.jpg",
+    "profile_photo": "/public/assets/images/agents/agent-socheata.png",
     "contact": {
       "phone": "077-890-112",
       "email": "nhem.rasmey@cityhomes.com"
@@ -170,7 +170,7 @@
   {
     "id": 315,
     "full_name": "Korn Sopheap",
-    "profile_photo": "images/agents/korn_sopheap.jpg",
+    "profile_photo": "/public/assets/images/agents/agent-vibol.png",
     "contact": {
       "phone": "088-266-900",
       "email": "korn.sopheap@cityhomes.com"
@@ -182,7 +182,7 @@
   {
     "id": 316,
     "full_name": "Heng Dalis",
-    "profile_photo": "images/agents/heng_dalis.jpg",
+    "profile_photo": "/public/assets/images/agents/agent-sreypov.png",
     "contact": {
       "phone": "071-998-221",
       "email": "heng.dalis@cityhomes.com"
@@ -194,7 +194,7 @@
   {
     "id": 317,
     "full_name": "Sann Vicheka",
-    "profile_photo": "images/agents/sann_vicheka.jpg",
+    "profile_photo": "/public/assets/images/agents/agent-socheata.png",
     "contact": {
       "phone": "012-889-776",
       "email": "sann.vicheka@cityhomes.com"
@@ -206,7 +206,7 @@
   {
     "id": 318,
     "full_name": "Reach Sina",
-    "profile_photo": "images/agents/reach_sina.jpg",
+    "profile_photo": "/public/assets/images/agents/agent-dara.png",
     "contact": {
       "phone": "015-776-120",
       "email": "reach.sina@cityhomes.com"
@@ -218,7 +218,7 @@
   {
     "id": 319,
     "full_name": "Dara Chanthorn",
-    "profile_photo": "images/agents/dara_chanthorn.jpg",
+    "profile_photo": "/public/assets/images/agents/agent-vibol.png",
     "contact": {
       "phone": "099-234-110",
       "email": "dara.chanthorn@cityhomes.com"
@@ -230,7 +230,7 @@
   {
     "id": 320,
     "full_name": "Leak Vannarith",
-    "profile_photo": "images/agents/leak_vannarith.jpg",
+    "profile_photo": "/public/assets/images/agents/agent-dara.png",
     "contact": {
       "phone": "068-440-998",
       "email": "leak.vannarith@cityhomes.com"
@@ -242,7 +242,7 @@
   {
     "id": 321,
     "full_name": "Sokmean Rith",
-    "profile_photo": "images/agents/sokmean_rith.jpg",
+    "profile_photo": "/public/assets/images/agents/agent-vibol.png",
     "contact": {
       "phone": "092-881-223",
       "email": "sokmean.rith@cityhomes.com"
@@ -254,7 +254,7 @@
   {
     "id": 322,
     "full_name": "Sreymao Lorn",
-    "profile_photo": "images/agents/sreymao_lorn.jpg",
+    "profile_photo": "/public/assets/images/agents/agent-socheata.png",
     "contact": {
       "phone": "081-990-122",
       "email": "sreymao.lorn@cityhomes.com"
@@ -266,7 +266,7 @@
   {
     "id": 323,
     "full_name": "Keo Monirith",
-    "profile_photo": "images/agents/keo_monirith.jpg",
+    "profile_photo": "/public/assets/images/agents/agent-dara.png",
     "contact": {
       "phone": "095-887-001",
       "email": "keo.monirith@cityhomes.com"
@@ -278,7 +278,7 @@
   {
     "id": 324,
     "full_name": "Sokheng Chiv",
-    "profile_photo": "images/agents/sokheng_chiv.jpg",
+    "profile_photo": "/public/assets/images/agents/agent-vibol.png",
     "contact": {
       "phone": "096-552-007",
       "email": "sokheng.chiv@cityhomes.com"
@@ -290,7 +290,7 @@
   {
     "id": 325,
     "full_name": "Ly Chantrea",
-    "profile_photo": "images/agents/ly_chantrea.jpg",
+    "profile_photo": "/public/assets/images/agents/agent-sreypov.png",
     "contact": {
       "phone": "010-667-889",
       "email": "ly.chantrea@cityhomes.com"
@@ -302,7 +302,7 @@
   {
     "id": 326,
     "full_name": "Sophal Chhun",
-    "profile_photo": "images/agents/sophal_chhun.jpg",
+    "profile_photo": "/public/assets/images/agents/agent-dara.png",
     "contact": {
       "phone": "087-995-221",
       "email": "sophal.chhun@cityhomes.com"
@@ -314,7 +314,7 @@
   {
     "id": 327,
     "full_name": "Kanha Srey",
-    "profile_photo": "images/agents/kanha_srey.jpg",
+    "profile_photo": "/public/assets/images/agents/agent-socheata.png",
     "contact": {
       "phone": "093-340-112",
       "email": "kanha.srey@cityhomes.com"
@@ -326,7 +326,7 @@
   {
     "id": 328,
     "full_name": "Phalla Chey",
-    "profile_photo": "images/agents/phalla_chey.jpg",
+    "profile_photo": "/public/assets/images/agents/agent-sreypov.png",
     "contact": {
       "phone": "012-770-899",
       "email": "phalla.chey@cityhomes.com"
@@ -338,7 +338,7 @@
   {
     "id": 329,
     "full_name": "Chanraksmey Pov",
-    "profile_photo": "images/agents/chanraksmey_pov.jpg",
+    "profile_photo": "/public/assets/images/agents/agent-vibol.png",
     "contact": {
       "phone": "099-882-551",
       "email": "chanraksmey.pov@cityhomes.com"
@@ -350,7 +350,7 @@
   {
     "id": 330,
     "full_name": "Rith Soklina",
-    "profile_photo": "images/agents/rith_soklina.jpg",
+    "profile_photo": "/public/assets/images/agents/agent-sreypov.png",
     "contact": {
       "phone": "088-123-450",
       "email": "rith.soklina@cityhomes.com"

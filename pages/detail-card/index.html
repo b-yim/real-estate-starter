@@ -7,12 +7,8 @@
     <link rel="stylesheet" href="index.css" />
     <link rel="stylesheet" href="../../styles/main.css" />
     <link rel="stylesheet" href="../../styles/components/nav-second.css" />
-    <link rel="stylesheet" href="../../styles/components/card-items.css" />
+    <link rel="stylesheet" href="../../styles/components/property-card.css" />
     <link rel="stylesheet" href="../../styles/components/footer.css" />
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/swiper/swiper-bundle.min.css"
-    />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
@@ -85,19 +81,17 @@
       </nav>
     </header>
 
-    <section class="container" id="detailCols">
-      <div class="detail-cols"></div>
-    </section>
+    <main class="property-detail-page container" id="detailCols">
+      <p class="detail-loading">Loading property details…</p>
+    </main>
 
-    <div class="container">
-      <h1 class="relate-title">Related to</h1>
-
-      <div class="card-grid-groups" id="saleColsCard"></div>
-
-      <div class="section__head">
-            <a class="section__link" href="/pages/agents/index.html">Show More</a>
+    <section class="related-section container">
+      <div class="related-heading">
+        <div><p class="detail-eyebrow">More to explore</p><h2>Similar properties</h2></div>
+        <a href="/pages/listing/index.html">View all properties →</a>
       </div>
-    </div>
+      <div class="card-grid-groups" id="saleColsCard"></div>
+    </section>
 
     <footer class="footer">
         <div class="img-footer">
